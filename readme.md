@@ -1,6 +1,6 @@
 # SAP Purchase Requisition MCP Server
 
-This repository contains a minimal [Model Context Protocol (MCP)](https://spec.modelcontextprotocol.io/) server that exposes tools for querying the SAP Purchase Requisition sandbox API. The server is implemented with FastAPI and packaged for easy deployment to Hugging Face Spaces or any other platform that can run a Python web service. Because the official MCP helper package is not yet published on PyPI, a small compatibility layer is bundled in `model_context_protocol/` so the project installs cleanly in build environments such as Spaces.
+This repository contains a minimal [Model Context Protocol (MCP)](https://spec.modelcontextprotocol.io/) server that exposes tools for querying the SAP Purchase Requisition sandbox API. The server is implemented with FastAPI and packaged for easy deployment to Hugging Face Spaces or any other platform that can run a Python web service.
 
 ## Features
 
@@ -45,13 +45,13 @@ The root endpoint (`/`) provides a simple health response. The MCP server is exp
 
 ```json
 {
-  "url": "https://<your-ngrok-subdomain>.ngrok.io/mcp",
+  "url": "wss://<your-ngrok-subdomain>.ngrok.io/mcp",
   "capabilities": ["tools"],
   "name": "sap_purchase_requisitions"
 }
 ```
 
-AgentKit will discover the `list_purchase_requisitions` tool via `GET /mcp/tools`. The tool can be invoked by issuing a `POST` request to `/mcp/tools/list_purchase_requisitions` with a JSON body that matches the schema provided by the discovery endpoint.
+AgentKit will discover the `list_purchase_requisitions` tool, allowing agents to query the SAP sandbox data.
 
 ## Deployment to Hugging Face Spaces
 
