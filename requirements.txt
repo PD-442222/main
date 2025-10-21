@@ -2,4 +2,3 @@ fastapi>=0.111.0,<0.112.0
 uvicorn[standard]>=0.29.0,<0.30.0
 httpx>=0.27.0,<0.28.0
 python-dotenv>=1.0.1,<2.0.0
-model-context-protocol[fastapi]>=0.0.8,<0.1.0
